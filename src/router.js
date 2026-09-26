@@ -16,6 +16,10 @@ export const router = {
     const pathParts = req.path.split('/').filter(Boolean);
     let targetService = pathParts[0];
 
+    if (targetService === 'orders') {
+      targetService = 'users';
+    }
+
     return gateway.process(req, targetService);
   }
 };
